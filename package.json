@@ -1,0 +1,24 @@
+{
+  "name": "the-neighbour-cat",
+  "version": "1.0.0",
+  "description": "A fuckin' awesome knowledgeable bot",
+  "license": "MIT",
+  "author": "P-Chan",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p-chan/the-neighbour-cat.git"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "serve": "nodemon index.js"
+  },
+  "dependencies": {
+    "botkit": "^0.6.15",
+    "dotenv": "^6.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.1"
+  },
+  "private": true
+}
