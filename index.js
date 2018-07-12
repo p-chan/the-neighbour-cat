@@ -4,6 +4,7 @@ const Botkit = require('botkit')
 const dotenv = require('dotenv')
 const fs = require('fs')
 const path = require('path')
+const scheduler = require('node-schedule')
 
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config()
@@ -33,3 +34,5 @@ fs.readdir(skillsPath, (err, list) => {
     require(skillPath)(controller)
   }
 })
+
+require('./jobs')(bot, scheduler)
