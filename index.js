@@ -21,7 +21,13 @@ const bot = controller // eslint-disable-line
 
 const skillsPath = path.resolve(__dirname, 'skills')
 
-fs.readdir(skillsPath, (list) => {
+fs.readdir(skillsPath, (err, list) => {
+  if (err) {
+    process.on('exit', () => {
+      process.exit(1)
+    })
+  }
+
   for (const file of list) {
     const skillPath = path.resolve(skillsPath, file)
     require(skillPath)(controller)
