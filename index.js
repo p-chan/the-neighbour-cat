@@ -6,14 +6,14 @@ const fs = require('fs')
 const path = require('path')
 
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
+  dotenv.config()
 }
 
 const controller = Botkit.slackbot({
   debug: false
 })
 
-const bot = controller
+const bot = controller // eslint-disable-line
   .spawn({
     token: process.env.SLACK_TOKEN
   })
@@ -21,7 +21,7 @@ const bot = controller
 
 const skillsPath = path.resolve(__dirname, 'skills')
 
-fs.readdir(skillsPath, (err, list) => {
+fs.readdir(skillsPath, (list) => {
   for (const file of list) {
     const skillPath = path.resolve(skillsPath, file)
     require(skillPath)(controller)
